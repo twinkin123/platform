@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Banner from "@/components/Banner";
 import GameCard from "@/components/GameCard";
 import { GAMES } from "@/lib/games";
@@ -15,8 +16,8 @@ function Row({ title, list }: { title: string; list: typeof GAMES }) {
         <h2 className="text-[15px] font-black">{title}</h2>
         <div className="ml-auto flex items-center gap-1.5">
           <span className="mr-1.5 text-xs text-[#8e8e9c]">View all</span>
-          <span className="grid h-7 w-7 place-items-center rounded-md border border-[#23233a] bg-[#141420] text-[#a9a9b8]">‹</span>
-          <span className="grid h-7 w-7 place-items-center rounded-md border border-[#23233a] bg-[#141420] text-[#a9a9b8]">›</span>
+          <span className="grid h-7 w-7 place-items-center rounded-md border border-[#23233a] bg-[#141420] text-[#a9a9b8]">Ã¢â‚¬Â¹</span>
+          <span className="grid h-7 w-7 place-items-center rounded-md border border-[#23233a] bg-[#141420] text-[#a9a9b8]">Ã¢â‚¬Âº</span>
         </div>
       </div>
       <div className="flex gap-3 overflow-hidden">
@@ -51,13 +52,13 @@ export default function Lobby() {
           ))}
         </div>
         <div className="ml-auto mb-2 flex h-9 w-[220px] items-center gap-2 rounded-md border border-[#1e1e27] bg-[#101017] px-3 text-xs text-[#5f5f6d]">
-          ⌕ Search games
+          Ã¢Å’⌕ Search games
           <span className="ml-auto rounded border border-[#2a2a36] px-1.5 text-[9.5px]">Ctrl K</span>
         </div>
       </div>
 
       <Row title="Shuffle Games" list={GAMES.slice(0, 7)} />
-      <Row title="Slots" list={[...GAMES.slice(3), ...GAMES.slice(0, 3)]} />
+      <Row title="Slots" list={[GAMES[7], GAMES[6], GAMES[5], GAMES[4], GAMES[2], GAMES[1], GAMES[0]]} />
     </div>
   );
 }
