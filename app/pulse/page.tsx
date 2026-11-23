@@ -38,7 +38,7 @@ function Row({ t, i }: { t: Awaited<ReturnType<typeof getTokens>>[number]; i: nu
         <span className="rounded border border-[#17402a] bg-[#0c2318] px-1 text-[9.5px] font-extrabold text-[#5fd897]">h {t.holders}</span>
         <span className="rounded border border-[#3a2f14] bg-[#241c0b] px-1 text-[9.5px] font-extrabold text-[#ffbf4d]">b {2 + (i % 5)}</span>
         <span className={`rounded border px-1 text-[9.5px] font-extrabold ${up ? "border-[#17402a] bg-[#0c2318] text-[#5fd897]" : "border-[#3d1c1f] bg-[#261112] text-[#ff7b85]"}`}>
-          {up ? "+" : "−"}{8 + (i * 7) % 40}%
+          {up ? "+" : "-"}{8 + (i * 7) % 40}%
         </span>
       </div>
       <div className="flex gap-3 text-[9.5px] text-[#4f5a6a]">
@@ -48,7 +48,7 @@ function Row({ t, i }: { t: Awaited<ReturnType<typeof getTokens>>[number]; i: nu
         <div><b className={`block text-[11px] ${top10 > 30 ? "text-[#ff7b85]" : "text-[#5fd897]"}`}>{top10.toFixed(1)}%</b>Top10</div>
         <div><b className="block text-[11px] text-[#aeb9c8]">{Number(t.devPct ?? 0).toFixed(1)}%</b>Dev</div>
       </div>
-      <p className="truncate font-mono text-[9.5px] text-[#3f4957]">{t.mint.slice(0, 6)}…pump</p>
+      <p className="truncate font-mono text-[9.5px] text-[#3f4957]">{t.mint.slice(0, 6)}pump</p>
     </li>
   );
 }
@@ -62,15 +62,14 @@ export default async function Pulse() {
   ] as const;
 
   return (
-    <div className="flex h-dvh flex-col bg-[#05070a]">
+    <div className="flex h-[calc(100dvh-92px)] flex-col bg-[#05070a]">
       <header className="flex h-[52px] shrink-0 items-center gap-2.5 border-b border-[#141a23] bg-[#070a0f] px-4">
         <span className="grid h-7 w-7 place-items-center rounded-md bg-gradient-to-br from-[#1b2b4d] to-[#0d1526] text-[11px] font-black text-[#7fa6ff]">S</span>
         <h1 className="text-sm font-extrabold">Pulse</h1>
         <span className="flex items-center gap-1.5 rounded border border-[#173726] bg-[#0b1d15] px-2 py-1 text-[11px] font-bold text-[#7fe0a8]">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#2ee27a]" />Live
         </span>
-        <div className="ml-auto flex h-8 w-[260px] items-center gap-2 rounded-md border border-[#1a2230] bg-[#0d121a] px-2.5 text-xs text-[#4f5a6a]">
-          ⌕ Searcl tokens, devs, tickers
+        <div className="ml-auto flex h-8 w-[260px] items-center gap-2 rounded-md border border-[#1a2230] bg-[#0d121a] px-2.5 text-xs text-[#4f5a6a]">Search tokens, devs, tickers
         </div>
         <button className="h-7 rounded border border-[#1c2534] bg-[#0e141d] px-2.5 text-[11px] font-bold text-[#93a0b2]">All chains</button>
         <button className="h-7 rounded border border-[#1c2534] bg-[#0e141d] px-2.5 text-[11px] font-bold text-[#93a0b2]">Filters</button>

@@ -1,18 +1,19 @@
 import Image from "next/image";
 
-export default function Banner({ src, tag, title, cta, tint }: {
-  src: string; tag: string; title: string; cta: string; tint: string;
+export default function Banner({ src, label, title, sub }: {
+  src: string; label: string; title: string; sub: string;
 }) {
   return (
-    <div className="relative h-[190px] overflow-hidden rounded-xl border border-white/10">
+    <div className="relative h-[196px] overflow-hidden rounded-xl border border-[#26262e]">
       <Image src={src} alt="" fill sizes="33vw" className="object-cover" priority />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
-      <div className="absolute inset-0 flex flex-col justify-end p-4">
-        <p className="text-[11px] font-black tracking-[0.14em]" style={{ color: tint }}>{tag}</p>
-        <p className="mt-1 text-[19px] font-black whitespace-pre-line leading-[1.1]">{title}</p>
-        <button className="mt-2 h-7 self-start rounded-md px-3.5 text-[11.5px] font-extrabold text-white" style={{ background: tint }}>
-          {cta}
-        </button>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+      <span className="absolute left-3 top-3 flex items-center gap-1 rounded bg-[#0a0a0d]/85 px-2 py-1 text-[10.5px] font-bold text-white">
+        <span className="grid h-3 w-3 place-items-center rounded-sm bg-[#8b5cf6] text-[7px]">+</span>
+        {label}
+      </span>
+      <div className="absolute inset-x-3 bottom-3">
+        <p className="whitespace-pre-line text-[24px] font-black uppercase leading-[1.02] tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">{title}</p>
+        <p className="mt-1.5 text-[11.5px] leading-snug text-white/85">{sub}</p>
       </div>
     </div>
   );
